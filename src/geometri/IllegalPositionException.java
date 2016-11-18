@@ -1,4 +1,4 @@
-package geometri;
+package Geometry;
 
 /**
  * An <tt>Exception</tt> which is thrown when trying to

@@ -6,6 +6,7 @@ import java.awt.*;
  */
 
     /**
+     * Hej
      * This interface describes drawable geometrical forms.
      * Each form contains of: A rectangle surrounding the form as narrow as
      * possible defined by its width and height, the position of
@@ -33,7 +34,7 @@ import java.awt.*;
      * @author (Bror Bjerner/Christer Carlsson)
      * @version (nov 2014)
      */
-    public interface GeometricalForm extends   Comparable<GeometricalForm> {
+    public interface GeometricalForm extends Comparable<GeometricalForm> {
 
         /**
          * Get the area of this form rounded
