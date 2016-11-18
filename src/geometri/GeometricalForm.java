@@ -1,4 +1,4 @@
-package geometri;
+package src.geometri;
 import java.awt.*;
 
 /**
