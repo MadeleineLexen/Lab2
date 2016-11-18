@@ -1,4 +1,4 @@
-package geometri;
+package src.geometri;
 
 /**
  * An <tt>Exception</tt> which is thrown when trying to

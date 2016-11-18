@@ -4,7 +4,7 @@ import java.awt.Container;
 import java.awt.Graphics;
 import javax.swing.*;
 import java.awt.event.*;
-import geometri.*;
+import src.geometri.*;
 import java.util.*;
 
 /**
