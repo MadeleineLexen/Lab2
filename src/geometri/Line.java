@@ -5,15 +5,11 @@ import java.lang.Math;
 /**
  * Created by madeleine on 2016-11-18.
  */
-public class Line implements GeometricalForm {
+public class Line extends Shape implements GeometricalForm {
 
     private int x2;
     private int y2;
-    //private double x;
-    //private double y;
-    //private GeometricalForm f1;
     private GeometricalForm f2;
-    //private Color c;
 
     public Line(int x1, int y1, int x2, int y2, Color c) throws IllegalPositionException {
         this.x = x1;
@@ -102,7 +98,7 @@ public class Line implements GeometricalForm {
      */
     @Override
     public int getY() {
-        if (y1 <= y2) {return y1;}
+        if (y <= y2) {return y;}
         else {return y2;}
     }
 
@@ -123,6 +119,8 @@ public class Line implements GeometricalForm {
      */
     @Override
     public int getPerimeter() {
+        double dx = 0;
+        double dy = 0;
         if (x < x2) {dx = x2-x;}
         else if (x > x2) {dx = x-x2;}
         if (y < y2) {dy = y2-y;}

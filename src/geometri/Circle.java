@@ -6,9 +6,9 @@ import java.awt.*;
  * Created by hannajacobsson on 2016-11-18.
  */
 
-public class Circle implements GeometricalForm {
+public class Circle extends Shape implements GeometricalForm {
 
-    private int diameter;
+    private double diameter;
 
     public Circle(int x, int y, int diameter, Color c) throws IllegalPositionException {
 

@@ -7,7 +7,7 @@ import java.awt.*;
 /**
  * Created by madeleine on 2016-11-18.
  */
-public class Square implements GeometricalForm {
+public class Square extends Shape implements GeometricalForm{
     private int side;
 
     private Square(int length){

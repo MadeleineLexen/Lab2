@@ -5,10 +5,10 @@ import java.awt.*;
 /**
  * Created by hannacarlsson on 2016-11-18.
  */
-public class Oval implements GeometricalForm {
+public class Oval extends Shape implements GeometricalForm {
 
-    protected int width;
-    protected int height;
+    private double width;
+    private double height;
 
     public Oval(int x, int y, int width, int height, Color c) throws IllegalPositionException {
 

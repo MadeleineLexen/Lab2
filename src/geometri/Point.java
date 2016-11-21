@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Created by hannajacobsson on 2016-11-18.
  */
-public class Point implements GeometricalForm {
+public class Point extends Shape implements GeometricalForm {
     private int x;
     private int y;
     private GeometricalForm f;
