@@ -139,4 +139,25 @@ public class Line extends Shape implements GeometricalForm {
         this.y = y;
 
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void area() {
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void perimeter() {
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setColor() {
+    }
 }

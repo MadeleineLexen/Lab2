@@ -6,10 +6,6 @@ import java.awt.*;
  * Created by hannajacobsson on 2016-11-18.
  */
 public class Point extends Shape implements GeometricalForm {
-    private int x;
-    private int y;
-    private GeometricalForm f;
-    private Color c;
 
     public Point(int x, int y, Color c) throws IllegalPositionException {
         this.x = x;
@@ -115,13 +111,35 @@ public class Point extends Shape implements GeometricalForm {
 
     /**
      * {@inheritDoc}
-     * @throws IllegalPositionException
      */
     @Override
     public void place(int x, int y) throws IllegalPositionException {
         if (x < 0 || y < 0) { throw new IllegalPositionException("Illegal position");}
         this.x = x;
         this.y= y;
+
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void area() {
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void perimeter() {
+
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setColor() {
 
     }
 }
