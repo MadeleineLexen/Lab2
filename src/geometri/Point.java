@@ -19,12 +19,18 @@ public class Point extends Shape {
         super(f, c);
     }
 
+    /**
+     * Calculate area of Point which is 0
+     */
     @Override
     protected void calculateArea() {
         this.area = 0;
 
     }
 
+    /**
+     * Calculate perimeter of Point which is 0
+     */
     @Override
     protected void calculatePerimeter() {
         this.perimeter = 0;
@@ -33,14 +39,30 @@ public class Point extends Shape {
 
     @Override
     public int hashCode() {
-        return 0;
+        int sum;
+        sum = this.getColor().hashCode();
+        return sum;
     }
 
     @Override
     public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+        if (o.getClass() == this.getClass()) {
+            Point other = (Point) o;
+            if (this.c == other.getColor()){
+                return true;
+            }
+            return false;
+        }
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     * Point cannot be filled
+     */
     @Override
     public void fill(Graphics g) {
 

@@ -26,6 +26,9 @@ public class Line extends Shape {
 
     }
 
+    /**
+     * Calculate area of Line, which is always 0
+     */
     @Override
     protected void calculateArea() {
         this.area = 0;
@@ -33,21 +36,38 @@ public class Line extends Shape {
     }
 
     @Override
-    protected void calculatePerimeter() { //SKRIV
+    protected void calculatePerimeter() {
         this.perimeter = sqrt(pow(this.getHeight(),2) + pow(this.getWidth(),2));
 
     }
 
     @Override
-    public int hashCode() { //TA SENARE
-        return 0;
+    public int hashCode() {
+        int sum;
+        sum = (this.getHeight() * 11 + this.getWidth() * 7 + this.getColor().hashCode());
+
+        return sum;
     }
 
     @Override
-    public boolean equals(Object o) { //TA SENARE
+    public boolean equals(Object o) {
+        if (o == null){
+            return false;
+        }
+        Line other = (Line) o;
+        if (this.getHeight() == other.getHeight()) {
+            if (this.getWidth() == other.getWidth() ) {
+                if (this.getColor() == other.getColor()){
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
+    /**
+     * a Line cannot be filled
+     */
     @Override
     public void fill(Graphics g) {
 
