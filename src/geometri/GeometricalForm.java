@@ -1,4 +1,4 @@
-package src.geometri;
+package geometri;
 import java.awt.*;
 
 /**
@@ -6,7 +6,6 @@ import java.awt.*;
  */
 
     /**
-     * Hej
      * This interface describes drawable geometrical forms.
      * Each form contains of: A rectangle surrounding the form as narrow as
      * possible defined by its width and height, the position of

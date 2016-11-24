@@ -5,26 +5,89 @@ import java.awt.*;
 /**
  * Created by madeleine on 2016-11-21.
  */
-public abstract class Shape {
-        public int x;
-        public int y;
-        public Color c;
-        public double area;
-        public double perimeter;
-        public GeometricalForm f;
+public abstract class Shape implements GeometricalForm{
+    private int x;
+    private int y;
+    private Color c;
+    protected double area;
+    protected double perimeter;
 
-        /**
-         * Calculates the area of the shape
-         */
-        public abstract void area();
-
-        /**
-         * Calculates the perimeter of the shape
-         */
-        public abstract void perimeter();
-
-        /**
-         * Sets the color of the shape
-         */
-        public abstract void setColor();
+    public Shape(int x, int y, Color c) {
+        this.x = x;
+        this.y = y;
+        this.c = c;
     }
+
+    public Shape(GeometricalForm f, Color c) {
+        this.x = f.getX();
+        this.y = f.getY();
+        this.c = c;
+    }
+
+    /**
+     * Calculates the area of the shape
+     */
+    protected abstract void calculateArea();
+
+    /**
+     * Calculates the perimeter of the shape
+     */
+    protected abstract void calculatePerimeter();
+
+    /**
+     * Sets the color of the shape
+     */
+    public void setColor(Color c) {
+
+    }
+
+    /**
+     * @return the objekt as an int
+     */
+    public abstract int hashCode();
+
+    /**
+     *
+     * @return the y position
+     */
+    public int getY() {
+        return y;
+    }
+
+    /**
+     *
+     * @return the x position
+     */
+    public int getX() {
+        return x;
+    }
+
+    /**
+     * @return true if the object is equal to the given object
+     */
+    public abstract boolean equals(Object o);
+
+    public void move(int dx, int dy ) throws IllegalPositionException {
+
+    }
+
+    public void place( int x, int y ) throws IllegalPositionException {
+
+    }
+
+    public int getArea() {
+        return (int) area;
+    }
+
+    public int getPerimeter() {
+        return (int) perimeter;
+    }
+
+    public Color getColor() {
+        return c;
+    }
+
+    public int compareTo(GeometricalForm f) {
+        return 0;
+    }
+}
