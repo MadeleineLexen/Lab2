@@ -22,12 +22,12 @@ public class Square extends Shape{
 
     @Override
     protected void calculateArea() {
-
+        this.area = side * side;
     }
 
     @Override
     protected void calculatePerimeter() {
-
+        this.perimeter = side * 4;
     }
 
     @Override
@@ -42,16 +42,16 @@ public class Square extends Shape{
 
     @Override
     public void fill(Graphics g) {
-
+        g.fillRect(getX(), getY(), getWidth(),getHeight());
     }
 
     @Override
     public int getWidth() {
-        return 0;
+        return side;
     }
 
     @Override
     public int getHeight() {
-        return 0;
+        return side;
     }
 }
