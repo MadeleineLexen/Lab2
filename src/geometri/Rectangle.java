@@ -31,13 +31,24 @@ public class Rectangle extends Shape {
         this.perimeter = width * 2 + height * 2;
     }
 
-    @Override
+
     public int hashCode() {
-        return 0;
+        int sum;
+        sum = getHeight() * 3 + getWidth() * 5 + getColor().hashCode();
+        return sum;
     }
 
     @Override
     public boolean equals(Object o) {
+        if(o == null){
+            return false;
+        }
+        if(o.getClass() == this.getClass()){
+            Rectangle other = (Rectangle) o;
+            if(this.getWidth() == other.getWidth() && this.getHeight() == other.getHeight() ){
+                return true;
+            }
+        }
         return false;
     }
 

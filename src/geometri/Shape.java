@@ -38,11 +38,11 @@ public abstract class Shape implements GeometricalForm{
      * Sets the color of the shape
      */
     public void setColor(Color c) {
-
+        this.c = c;
     }
 
     /**
-     * @return the objekt as an int
+     * @return generates a hashcode for the object
      */
     public abstract int hashCode();
 
@@ -68,11 +68,13 @@ public abstract class Shape implements GeometricalForm{
     public abstract boolean equals(Object o);
 
     public void move(int dx, int dy ) throws IllegalPositionException {
-
+        x = dx;
+        y = dy;
     }
 
     public void place( int x, int y ) throws IllegalPositionException {
-
+        this.x = x;
+        this.y = y;
     }
 
     public int getArea() {
@@ -88,6 +90,22 @@ public abstract class Shape implements GeometricalForm{
     }
 
     public int compareTo(GeometricalForm f) {
-        return 0;
+        if( this.getArea() > f.getArea()){
+            return 1;
+        }
+        else if (this.getArea() < f.getArea()){
+            return -1;
+        }
+        else{
+            if( this.getPerimeter() > f.getPerimeter()){
+                return 1;
+            }
+            else if ( this.getPerimeter() < f.getPerimeter()){
+                return  -1;
+            }
+            else{
+                return 0;
+            }
+        }
     }
 }
