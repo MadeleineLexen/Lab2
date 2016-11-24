@@ -21,11 +21,13 @@ public class Point extends Shape {
 
     @Override
     protected void calculateArea() {
+        this.area = 0;
 
     }
 
     @Override
     protected void calculatePerimeter() {
+        this.perimeter = 0;
 
     }
 
