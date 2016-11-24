@@ -2,6 +2,9 @@ package geometri;
 import java.awt.*;
 import java.lang.Math;
 
+import static java.lang.Math.pow;
+import static java.lang.Math.sqrt;
+
 /**
  * Created by madeleine on 2016-11-18.
  */
@@ -25,21 +28,23 @@ public class Line extends Shape {
 
     @Override
     protected void calculateArea() {
+        this.area = 0;
 
     }
 
     @Override
-    protected void calculatePerimeter() {
+    protected void calculatePerimeter() { //SKRIV
+        this.perimeter = sqrt(pow(this.getHeight(),2) + pow(this.getWidth(),2));
 
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode() { //TA SENARE
         return 0;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o) { //TA SENARE
         return false;
     }
 
@@ -50,11 +55,25 @@ public class Line extends Shape {
 
     @Override
     public int getWidth() {
-        return 0;
+        int width = 0;
+        if (this.getX() <= x2) {
+            width = x2 - this.getX();
+        }
+        else if (this.getX() > x2){
+            width = this.getX() - x2;
+        }
+        return width;
     }
 
     @Override
     public int getHeight() {
-        return 0;
+        int height = 0;
+        if (this.getY() <= y2){
+            height = y2 - this.getY();
+        }
+        else if (this.getY() > y2) {
+            height = this.getY() - y2;
+        }
+        return height;
     }
 }
