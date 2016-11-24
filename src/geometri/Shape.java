@@ -63,7 +63,7 @@ public abstract class Shape implements GeometricalForm{
     }
 
     /**
-     * @return true if the object is equal to the given object
+     * @return true if the object is equal to the given object.
      */
     public abstract boolean equals(Object o);
 
