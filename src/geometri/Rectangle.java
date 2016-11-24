@@ -23,12 +23,12 @@ public class Rectangle extends Shape {
 
     @Override
     protected void calculateArea() {
-
+        this.area = width * height;
     }
 
     @Override
     protected void calculatePerimeter() {
-
+        this.perimeter = width * 2 + height * 2;
     }
 
     @Override
@@ -43,16 +43,16 @@ public class Rectangle extends Shape {
 
     @Override
     public void fill(Graphics g) {
-
+        g.fillRect(getX(), getY(), width, height);
     }
 
     @Override
     public int getWidth() {
-        return 0;
+        return width;
     }
 
     @Override
     public int getHeight() {
-        return 0;
+        return height;
     }
 }
