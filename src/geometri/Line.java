@@ -18,11 +18,15 @@ public class Line extends Shape {
         super(x1, y1, c);
         this.x2 = x2;
         this.y2 = y2;
+        calculatePerimeter();
+        calculateArea();
     }
 
     public Line(GeometricalForm f1, GeometricalForm f2, Color c){
         super(f1, c);
         this.f2 = f2;
+        calculatePerimeter();
+        calculateArea();
 
     }
 
@@ -54,14 +58,12 @@ public class Line extends Shape {
         if (o == null){
             return false;
         }
-        Line other = (Line) o;
-        if (this.getHeight() == other.getHeight()) {
-            if (this.getWidth() == other.getWidth() ) {
-                if (this.getColor() == other.getColor()){
-                    return true;
+        if (this.getClass() == o.getClass()) {
+            Line other = (Line) o;
+            if (this.getWidth() == other.getWidth() && this.getHeight() == other.getHeight() && this.getColor() == other.getColor()) {
+                return true;
                 }
             }
-        }
         return false;
     }
 
@@ -70,6 +72,8 @@ public class Line extends Shape {
      */
     @Override
     public void fill(Graphics g) {
+        g.setColor( getColor() );
+        g.drawLine(getX(), getY(), x2, y2);
 
     }
 
