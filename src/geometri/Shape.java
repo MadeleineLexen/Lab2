@@ -68,12 +68,20 @@ public abstract class Shape implements GeometricalForm{
     public abstract boolean equals(Object o);
 
     public void move(int dx, int dy ) throws IllegalPositionException {
-        x = dx;
-        y = dy;
+        x = x - dx;
+        y = y - dy;
     }
 
     public void place( int x, int y ) throws IllegalPositionException {
         this.x = x;
+        this.y = y;
+    }
+
+    public void setX(int x){
+        this.x = x;
+    }
+
+    public void setY(int y){
         this.y = y;
     }
 

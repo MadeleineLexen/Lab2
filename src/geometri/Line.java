@@ -9,25 +9,43 @@ import static java.lang.Math.sqrt;
  * Created by madeleine on 2016-11-18.
  */
 public class Line extends Shape {
-
     private int x2;
     private int y2;
+    private final int dx;
+    private final int dy;
+    private boolean angle;
     private GeometricalForm f2;
 
     public Line(int x1, int y1, int x2, int y2, Color c) throws IllegalPositionException {
         super(x1, y1, c);
         this.x2 = x2;
         this.y2 = y2;
+        this.dx = Math.abs(getX() - x2);
+        this.dy = Math.abs(getY() - y2);
         calculatePerimeter();
         calculateArea();
+        setAngle();
+        //getCorner();
     }
 
     public Line(GeometricalForm f1, GeometricalForm f2, Color c){
         super(f1, c);
         this.f2 = f2;
+        this.dx = Math.abs(f1.getX() - f2.getY());
+        this.dy = Math.abs(f1.getY() - f2.getY());
         calculatePerimeter();
         calculateArea();
+        //getCorner();
+        setAngle();
+    }
 
+    private void setAngle(){
+        if(getX() < x2){
+            angle = true;
+        }
+        else{
+            angle = false;
+        }
     }
 
     /**
@@ -43,6 +61,15 @@ public class Line extends Shape {
     protected void calculatePerimeter() {
         this.perimeter = sqrt(pow(this.getHeight(),2) + pow(this.getWidth(),2));
 
+    }
+
+    public void getCorner(){
+        int tempX = getX();
+        int tempY = getY();
+        setX(Math.min(getX(), x2));
+        x2 = Math.max(tempX, x2);
+        setY(Math.min(getY(), y2));
+        y2 = Math.max(tempY, y2);
     }
 
     @Override
@@ -73,31 +100,21 @@ public class Line extends Shape {
     @Override
     public void fill(Graphics g) {
         g.setColor( getColor() );
-        g.drawLine(getX(), getY(), x2, y2);
-
+        if(angle){
+            g.drawLine(getX(), getY(), getX()+getWidth(), getY() + getHeight());
+        }
+        else{
+            g.drawLine(getX() + getWidth(), getY(), getX(), getY() + getHeight());
+        }
     }
 
     @Override
     public int getWidth() {
-        int width = 0;
-        if (this.getX() <= x2) {
-            width = x2 - this.getX();
-        }
-        else if (this.getX() > x2){
-            width = this.getX() - x2;
-        }
-        return width;
+        return dx;
     }
 
     @Override
     public int getHeight() {
-        int height = 0;
-        if (this.getY() <= y2){
-            height = y2 - this.getY();
-        }
-        else if (this.getY() > y2) {
-            height = this.getY() - y2;
-        }
-        return height;
+        return dy;
     }
 }
